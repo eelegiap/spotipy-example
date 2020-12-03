@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block style %}
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+{% endblock %}
+
+{% block title %}
+Query by genre
+{% endblock %}
+
+{% block main %}
+
+<div class="row">
+  <div class="col-md-12">
+    <p>
+      {% for genre in genres %}
+      <span>{{ genre }}, </span>
+      {% endfor %}
+    </p>
+  </div>
+</div>
+<!-- input button -->
+<div class="row">
+  <div class="col-md-12">
+    <form action="/" method="post">
+      <div class="form-group">
+          <input autocomplete="off" autofocus class="form-control" name="id" placeholder="Enter genre here" type="text">
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+  </div>
+</div>
+
+<!-- genre header, if one is chosen -->
+<div class="row">
+  <div class="col-md-12">
+    <h2>genre: {{ user_genre_input }}</h3>
+  </div>
+</div>
+
+<!-- song table -->
+<div class="row">
+  <div class="col-md-12">
+    <table style="width:100%">
+      <tr>
+        <th>Song Title</th>
+        <th>Artist</th>
+        <th>Album Title</th>
+        <th>Release Date</th>
+        <th>URL</th>
+      </tr>
+      {% for track in tracks %}
+      <tr>
+        <th>{{ track[0] }}</th>
+        <th>{{ track[1] }}</th>
+        <th>{{ track[2] }}</th>
+        <th>{{ track[3] }}</th>
+        <th><a href="{{ track[4] }}">See on Spotify</a></th>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock %}

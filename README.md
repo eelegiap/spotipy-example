@@ -1,2 +1,5 @@
-# spotipy-example
-example using the Spotipy API on Flask using the recommendations function
+### flask example using the spotipy API
+
+```$ export FLASK_APP=app.py```
+
+```$ flask run```
