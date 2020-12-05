@@ -36,6 +36,7 @@ Query by genre
     </p>
   </div>
 </div>
+
 <!-- input button -->
 <div class="row">
   <div class="col-md-12">
@@ -60,19 +61,25 @@ Query by genre
   <div class="col-md-12">
     <table style="width:100%">
       <tr>
-        <th>Song Title</th>
         <th>Artist</th>
+        <th>Song</th>
         <th>Album Title</th>
         <th>Release Date</th>
         <th>URL</th>
+        <th>ID</th>
+        <th>Danceability</th>
+        <th>Energy</th>
       </tr>
       {% for track in tracks %}
       <tr>
-        <th>{{ track[0] }}</th>
         <th>{{ track[1] }}</th>
+        <th>{{ track[0] }}</th>
         <th>{{ track[2] }}</th>
         <th>{{ track[3] }}</th>
         <th><a href="{{ track[4] }}">See on Spotify</a></th>
+        <th>{{ track[5] }}</th>
+        <th>{{ track[6] }}</th>
+        <th>{{ track[7] }}</th>
         {% endfor %}
       </tr>
     </table>
